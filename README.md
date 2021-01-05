@@ -1,6 +1,6 @@
 # UDP Ping
 ## Description
-A simple C client/server implementation aimed to calculate latency and packet loss. Will be using this with future benchmarks I make.
+A simple C client/server implementation over UDP aimed to calculate latency and packet loss. Will be using this with future benchmarks I make.
 
 ## Client
 The client (`ping`) supports the following arguments:
