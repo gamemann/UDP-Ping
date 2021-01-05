@@ -204,7 +204,10 @@ int main(int argc, char **argv)
 
         recv++;
 
-        usleep(cmd.interval);
+        if (cmd.interval > 0)
+        {
+            usleep(cmd.interval);
+        }
     }
     
     uint64_t lost = count - recv;
