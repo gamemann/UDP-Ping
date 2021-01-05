@@ -129,8 +129,6 @@ int main(int argc, char **argv)
             continue;
         }
 
-        count++;
-
         if (sendto(sockfd, (const char *)buffer, strlen(buffer), 0, (struct sockaddr *)&cin, sizeof(cin)) < 0)
         {
             fprintf(stderr, "Failed to send packet :: %s\n", strerror(errno));
@@ -144,7 +142,7 @@ int main(int argc, char **argv)
 
         if (cmd.verbose)
         {
-            fprintf(stdout, "Received packet from %s (%" PRIu64 "\n", (ip != NULL) ? ip : "N/A", count);
+            fprintf(stdout, "Received packet from %s (%" PRIu64 ")\n", (ip != NULL) ? ip : "N/A", count);
         }
     }
     
