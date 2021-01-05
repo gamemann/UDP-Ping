@@ -1,14 +1,13 @@
-COMMOBJS += src/common.o
 SERVERSRC += src/server.c
 CLIENTSRC += src/client.c
 
 all: client server
 
-client: $(COMMOBJS)
-	clang -O2 -o ping $(COMMOBJS) $(CLIENTSRC)
+client:
+	clang -O2 -o ping $(CLIENTSRC)
 
-server: $(COMMOBJS)
-	clang -O2 -o server $(COMMOBJS) $(SERVERSRC)
+server:
+	clang -O2 -o server $(SERVERSRC)
 
 clean:
 	rm -f src/*.o
