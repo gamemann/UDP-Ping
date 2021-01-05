@@ -8,7 +8,7 @@ The client (`ping`) supports the following arguments:
 ```
 --dest -d => The destination host/IP to send to.
 --port -p => The destination port.
---timeout -t => How much time to wait for a packet to be sent out before considering it a timeout (in microseconds).
+--timeout -t => How much time to wait after the packet to be sent out before considering it a timeout if it doesn't make it back (in microseconds).
 --interval -i => After packet receive, how long to wait in microseconds.
 --verbose -v => Verbose mode.
 ```
