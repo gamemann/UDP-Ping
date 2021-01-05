@@ -15,5 +15,5 @@ clean:
 	rm -f ping
 	rm -f server
 
-.PHONY: all
+.PHONY: server all
 .DEFAULT: all
