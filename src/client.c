@@ -172,7 +172,6 @@ int main(int argc, char **argv)
     while (cont)
     {
         struct timeval start, stop;
-        gettimeofday(&start, NULL);
 
         if (sendto(sockfd, NULL, 0, 0, (struct sockaddr *)&sin, sizeof(sin)) < 0)
         {
@@ -181,6 +180,7 @@ int main(int argc, char **argv)
             continue;
         }
 
+        gettimeofday(&start, NULL);
         count++;
 
         socklen_t len;
@@ -193,6 +193,7 @@ int main(int argc, char **argv)
         }
 
         gettimeofday(&stop, NULL);
+        recv++;
 
         double lat = (double)(stop.tv_usec - start.tv_usec) / 1000 + (double)(stop.tv_sec - start.tv_sec) * 1000;
         avglat += lat;
@@ -201,8 +202,6 @@ int main(int argc, char **argv)
         {
             fprintf(stdout, "%.2lfms\t[%" PRIu64 "]\n", lat, count);
         }
-
-        recv++;
 
         if (cmd.interval > 0)
         {
