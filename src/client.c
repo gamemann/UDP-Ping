@@ -194,7 +194,7 @@ int main(int argc, char **argv)
 
         gettimeofday(&stop, NULL);
 
-        double lat = (double)((stop.tv_usec - start.tv_usec)) / 1000;
+        double lat = (double)(stop.tv_usec - start.tv_usec) / 1000 + (double)(stop.tv_sec - start.tv_sec) * 1000;
         avglat += lat;
 
         if (cmd.verbose)
@@ -212,7 +212,7 @@ int main(int argc, char **argv)
     
     uint64_t lost = count - recv;
     double loss = (lost > 0) ? (double)((double)lost / count) * 100 : 0;
-    double avglat2 = (recv > 0) ? (avglat / (double)recv) : 0;
+    double avglat2 = (recv > 0) ? (double)(avglat / recv) : 0;
 
     fprintf(stdout, "Packets Sent => %" PRIu64 "\nPackets Received => %" PRIu64 "\nPackets Lost => %" PRIu64 "\nPacket Loss => %.2lf%%\nAvg Latency => %.2lfms\n", count, recv, lost, loss, avglat2);
 
